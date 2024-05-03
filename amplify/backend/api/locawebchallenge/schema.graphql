@@ -1,0 +1,9 @@
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type keyword @model {
+  id: ID!
+  nome: String!
+  nivel_de_uso: String!
+  ativo: Boolean
+  motivo_de_exclusao: String
+}
