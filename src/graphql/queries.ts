@@ -8,15 +8,21 @@ type GeneratedQuery<InputType, OutputType> = string & {
   __generatedQueryOutput: OutputType;
 };
 
+export const generateKeywordForSite = /* GraphQL */ `query GenerateKeywordForSite {
+  generateKeywordForSite
+}
+` as GeneratedQuery<
+  APITypes.GenerateKeywordForSiteQueryVariables,
+  APITypes.GenerateKeywordForSiteQuery
+>;
 export const getKeyword = /* GraphQL */ `query GetKeyword($id: ID!) {
   getKeyword(id: $id) {
     id
     nome
     nivel_de_uso
-    ativo
-    motivo_de_exclusao
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -34,7 +40,46 @@ export const listKeywords = /* GraphQL */ `query ListKeywords(
       id
       nome
       nivel_de_uso
-      ativo
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListKeywordsQueryVariables,
+  APITypes.ListKeywordsQuery
+>;
+export const getRelatorioExclusao = /* GraphQL */ `query GetRelatorioExclusao($id: ID!) {
+  getRelatorioExclusao(id: $id) {
+    id
+    keyword
+    motivo_de_exclusao
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetRelatorioExclusaoQueryVariables,
+  APITypes.GetRelatorioExclusaoQuery
+>;
+export const listRelatorioExclusaos = /* GraphQL */ `query ListRelatorioExclusaos(
+  $filter: ModelRelatorioExclusaoFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listRelatorioExclusaos(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      keyword
       motivo_de_exclusao
       createdAt
       updatedAt
@@ -45,6 +90,6 @@ export const listKeywords = /* GraphQL */ `query ListKeywords(
   }
 }
 ` as GeneratedQuery<
-  APITypes.ListKeywordsQueryVariables,
-  APITypes.ListKeywordsQuery
+  APITypes.ListRelatorioExclusaosQueryVariables,
+  APITypes.ListRelatorioExclusaosQuery
 >;

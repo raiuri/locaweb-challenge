@@ -1,9 +1,28 @@
-input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
-
-type keyword @model {
+type keyword @model 
+  @auth(
+    rules: [
+      {allow: groups, groups: ["Admins"], operations: [read, create, update, delete]},
+      {allow: private, operations: [create, update]},
+      {allow: owner, operations: [create, read, update]}
+    ]) 
+{
   id: ID!
   nome: String!
   nivel_de_uso: String!
-  ativo: Boolean
+}
+
+type relatorioExclusao @model 
+  @auth(
+    rules: [
+      {allow: groups, groups: ["Admins"], operations: [read, create, update, delete]}
+    ]) 
+{
+  id: ID!
+  keyword: String!
   motivo_de_exclusao: String
 }
+
+type Query {
+  generateKeywordForSite: AWSJSON! @function(name: "keywordForSite-${env}")
+}
+ 

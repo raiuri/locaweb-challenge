@@ -1,0 +1,18 @@
+{
+  "resourceName": "s35de67b8c",
+  "policyUUID": "5de67b8c",
+  "bucketName": "locawebchallenge1bc8820223474b0fa8e0417eb7e0616",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "groupAccess": {
+    "Admins": [
+      "CREATE_AND_UPDATE",
+      "READ",
+      "DELETE"
+    ]
+  }
+}

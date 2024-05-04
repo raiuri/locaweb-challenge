@@ -16,10 +16,9 @@ export const createKeyword = /* GraphQL */ `mutation CreateKeyword(
     id
     nome
     nivel_de_uso
-    ativo
-    motivo_de_exclusao
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -35,10 +34,9 @@ export const updateKeyword = /* GraphQL */ `mutation UpdateKeyword(
     id
     nome
     nivel_de_uso
-    ativo
-    motivo_de_exclusao
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -54,7 +52,23 @@ export const deleteKeyword = /* GraphQL */ `mutation DeleteKeyword(
     id
     nome
     nivel_de_uso
-    ativo
+    createdAt
+    updatedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteKeywordMutationVariables,
+  APITypes.DeleteKeywordMutation
+>;
+export const createRelatorioExclusao = /* GraphQL */ `mutation CreateRelatorioExclusao(
+  $input: CreateRelatorioExclusaoInput!
+  $condition: ModelRelatorioExclusaoConditionInput
+) {
+  createRelatorioExclusao(input: $input, condition: $condition) {
+    id
+    keyword
     motivo_de_exclusao
     createdAt
     updatedAt
@@ -62,6 +76,40 @@ export const deleteKeyword = /* GraphQL */ `mutation DeleteKeyword(
   }
 }
 ` as GeneratedMutation<
-  APITypes.DeleteKeywordMutationVariables,
-  APITypes.DeleteKeywordMutation
+  APITypes.CreateRelatorioExclusaoMutationVariables,
+  APITypes.CreateRelatorioExclusaoMutation
+>;
+export const updateRelatorioExclusao = /* GraphQL */ `mutation UpdateRelatorioExclusao(
+  $input: UpdateRelatorioExclusaoInput!
+  $condition: ModelRelatorioExclusaoConditionInput
+) {
+  updateRelatorioExclusao(input: $input, condition: $condition) {
+    id
+    keyword
+    motivo_de_exclusao
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateRelatorioExclusaoMutationVariables,
+  APITypes.UpdateRelatorioExclusaoMutation
+>;
+export const deleteRelatorioExclusao = /* GraphQL */ `mutation DeleteRelatorioExclusao(
+  $input: DeleteRelatorioExclusaoInput!
+  $condition: ModelRelatorioExclusaoConditionInput
+) {
+  deleteRelatorioExclusao(input: $input, condition: $condition) {
+    id
+    keyword
+    motivo_de_exclusao
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteRelatorioExclusaoMutationVariables,
+  APITypes.DeleteRelatorioExclusaoMutation
 >;
